@@ -1,2 +1,5 @@
 # Ignore git ignore file 
 venv/
+
+# Ignore python cache files 
+__pycache__/

@@ -1,5 +1,15 @@
-from PIL import Image
-import pytesseract
+from fastapi import FastAPI
+from app.api.api_routes import router as api_router
 
-# Print the text extracted from the image
-print(pytesseract.image_to_string(Image.open('C:\\Projects\\receipt-to-recipe\\backEnd\\img\\testImage.png')))
+app = FastAPI(
+    title="PantryPal",
+    version="1.0.0"
+)
+
+app.include_router(api_router)
+
+@app.get("/")
+def root():
+    return {
+        "message": "Welcome to the PantryPal API!"
+    }
