@@ -5,10 +5,10 @@ from app.logs.logger import logger
 
 router = APIRouter()
 
-@router.post("/upload-receipt", response_model=ReceiptUploadResponse)
+@router.post("/ocr/parse-receipt", response_model=ReceiptUploadResponse)
 async def upload_receipt(file: UploadFile = File(...)):
     logger.info("\n" + "-" * 80)
-    logger.info(f"Received /upload-receipt request with file: {file.filename}")
+    logger.info(f"Received /ocr/parse-receipt request with file: {file.filename}")
     """
     This endpoint:
         - Accepts image file 
